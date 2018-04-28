@@ -1,6 +1,7 @@
 package me.eftelist.ParkBase
 
 import com.earth2me.essentials.Essentials
+import me.eftelist.ParkBase.Base.Actions.BaseActionDebug
 import me.eftelist.ParkBase.Base.Actions.BaseActionHelp
 import me.eftelist.ParkBase.Base.Dependency
 import me.eftelist.ParkBase.Base.ParkBase
@@ -19,7 +20,7 @@ class BaseImpl : ParkBase() {
                 SubCommandBuilder().name("help").action(BaseActionHelp()).build()
         ).build()
         val commanddebugstate = CommandBuilder().setCommand("debugstate").addSubCommand(
-                SubCommandBuilder().name("help").action(BaseActionHelp()).build()
+                SubCommandBuilder().name("help").action(BaseActionDebug()).build()
         ).build()
         addCommand(commandpb)
         addCommand(commanddebugstate)

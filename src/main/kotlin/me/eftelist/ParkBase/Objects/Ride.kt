@@ -1,5 +1,7 @@
 package me.eftelist.ParkBase.Objects
 
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import me.eftelist.ParkBase.Objects.Enums.State
 import me.eftelist.ParkBase.Realms.Realm
 import org.bukkit.Material
@@ -9,6 +11,15 @@ data class Ride(val name: String, val realm: Realm, var state: State) {
 
     override fun toString(): String {
         return "ride(name= $name,realm= $realm,state= $state)"
+    }
+
+    fun toJSONObject(): JsonObject {
+        var JsonParser = JsonParser()
+        return JsonParser.parse(this.toJSONString()) as JsonObject
+    }
+
+    fun toJSONString(): String {
+        return "{'id'='$name','realm'='$realm','state'='${state.name}'}"
     }
 
     fun getStateItemStack(): ItemStack {
@@ -22,4 +33,5 @@ data class Ride(val name: String, val realm: Realm, var state: State) {
             return ItemStack(Material.STAINED_CLAY,1,14.toShort());
         }
     }
+
 }
