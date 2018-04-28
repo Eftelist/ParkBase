@@ -2,8 +2,7 @@ package me.eftelist.ParkBase
 
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
-
-import java.util.ArrayList
+import java.util.*
 
 abstract class ParkBase : JavaPlugin() {
 
@@ -11,12 +10,11 @@ abstract class ParkBase : JavaPlugin() {
     private var disabledMessage: String? = null
     private var enabledd = false
     private var wasDisableRequest = false
-    var version = "0.1"
     val dependencies = ArrayList<Dependency>()
 
-    fun addDependency(dependency: Dependency){
-        if(!dependencies.contains(dependency)){
-            dependencies.add(dependency);
+    fun addDependency(dependency: Dependency) {
+        if (!dependencies.contains(dependency)) {
+            dependencies.add(dependency)
         }
     }
 
@@ -64,9 +62,5 @@ abstract class ParkBase : JavaPlugin() {
     abstract fun disable()
 
     abstract fun enable()
-
-    private fun checkVars(): Boolean {
-        return enabledMessage != null && disabledMessage != null
-    }
 
 }

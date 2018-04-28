@@ -20,7 +20,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven { url =  "http://repo.dmulloy2.net/content/groups/public/" }
+    maven { url = "http://repo.dmulloy2.net/content/groups/public/" }
     maven {
         url = "https://ci.mg-dev.eu/plugin/repository/everything"
     }
@@ -48,8 +48,8 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly 'org.spigotmc:spigot:1.12.2-SNAPSHOT' // The full Spigot server with no shadowing. Requires mavenLocal.
-    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0-SNAPSHOT";
-    compileOnly group: "net.ess3", name:"Essentials",version:"2.14-SNAPSHOT";
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0-SNAPSHOT"
+    compileOnly group: "net.ess3", name: "Essentials", version: "2.14-SNAPSHOT"
     compile 'ru.tehkode:PermissionsEx:1.23'
 }
 

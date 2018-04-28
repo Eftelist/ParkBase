@@ -1,6 +1,6 @@
 package me.eftelist.ParkBase
 
-class BaseImpl: ParkBase(){
+class BaseImpl : ParkBase() {
 
     override fun loadDependencies() {
         addDependency(Dependency("WorldGuard"))
@@ -11,9 +11,11 @@ class BaseImpl: ParkBase(){
     }
 
     override fun enable() {
+        logger.info("Great. It works!")
     }
 
     override fun disable() {
+        logger.info("Bye.")
     }
 
 }
