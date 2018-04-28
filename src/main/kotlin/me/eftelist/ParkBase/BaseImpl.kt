@@ -39,7 +39,6 @@ class BaseImpl : ParkBase() {
             plugin = this
             essentials = Bukkit.getPluginManager().getPlugin("Essentials") as Essentials
             Bukkit.getPluginManager().registerEvents(BaseListener(),this)
-            val list = ArrayList<SubCommand>()
             logger.info("Great. It works!")
         } catch (exception: Exception){
             ErrorUtil.reportException(exception, this.javaClass, true)

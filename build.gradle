@@ -25,6 +25,9 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url = "http://85.214.63.252:1890/"
+    }
     maven { url = "http://repo.dmulloy2.net/content/groups/public/" }
     maven {
         url = "https://ci.mg-dev.eu/plugin/repository/everything"
@@ -58,6 +61,8 @@ dependencies {
     compileOnly 'ru.tehkode:PermissionsEx:1.23'
     compile 'com.okkero.skedule:skedule:1.2.3'
     compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
+    compile 'me.eftelist:SplineLibrary:1.0-SNAPSHOT'
+
 }
 
 compileKotlin {

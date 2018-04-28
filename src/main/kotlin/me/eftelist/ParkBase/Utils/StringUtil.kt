@@ -3,7 +3,7 @@ package me.eftelist.ParkBase.Utils
 import org.bukkit.ChatColor
 
 object StringUtil {
-    
+
     private val CENTER_PX = 154
 
     fun sendCenteredMessage(messagem: String?): String {
