@@ -1,0 +1,4 @@
+name: ParkBase
+description: Test
+version: 0.1
+main: me.eftelist.ParkBase.BaseImpl
