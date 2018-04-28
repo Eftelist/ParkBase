@@ -1,4 +1,4 @@
-package me.eftelist.ParkBase
+package me.eftelist.ParkBase.Base
 
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
