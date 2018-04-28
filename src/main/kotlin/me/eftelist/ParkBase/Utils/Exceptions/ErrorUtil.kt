@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 object ErrorUtil {
 
     fun reportException(e: Exception, c: Class<Any>, stop: Boolean) {
-        Bukkit.broadcast(ChatColor.translateAlternateColorCodes('&',"&4Unhandled exception caught: &c" + e.message + " in " + c.getName()), "PB.Admin")
+        Bukkit.broadcast(ChatColor.translateAlternateColorCodes('&',"&4Unhandled exception caught: &c" + e.message + " in " + c.name), "PB.Admin")
         e.printStackTrace()
         if(stop){
             launch(BukkitDispatcher(BaseImpl.plugin!!)){

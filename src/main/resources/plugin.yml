@@ -5,3 +5,5 @@ main: me.eftelist.ParkBase.BaseImpl
 commands:
    parkbase:
       description: PB
+   debugstate:
+      description: test

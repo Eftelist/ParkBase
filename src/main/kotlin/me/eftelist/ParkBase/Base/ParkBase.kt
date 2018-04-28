@@ -1,5 +1,6 @@
 package me.eftelist.ParkBase.Base
 
+import me.eftelist.ParkBase.Commands.Interfaces.Command
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.*
@@ -11,6 +12,7 @@ abstract class ParkBase : JavaPlugin() {
     private var enabledd = false
     private var wasDisableRequest = false
     val dependencies = ArrayList<Dependency>()
+    val commands = ArrayList<Command>()
 
     fun addDependency(dependency: Dependency) {
         if (!dependencies.contains(dependency)) {
@@ -18,8 +20,15 @@ abstract class ParkBase : JavaPlugin() {
         }
     }
 
+    fun addCommand(command: Command){
+        if(!this.commands.contains(command)){
+            commands.add(command)
+        }
+    }
+
     override fun onEnable() {
         this.loadDependencies()
+        this.loadCommands()
         // Check dependencies
         for (dep in this.dependencies) {
             if (!Bukkit.getPluginManager().isPluginEnabled(dep.name)) {
@@ -35,6 +44,9 @@ abstract class ParkBase : JavaPlugin() {
             if (this.wasDisableRequest) {
                 return
             }
+            for(Command in commands){
+                Command.register()
+            }
             this.enabledd = true
         } catch (e: Exception) {
             e.printStackTrace()
@@ -43,6 +55,7 @@ abstract class ParkBase : JavaPlugin() {
 
         logger.info(enabledMessage)
     }
+
 
     override fun onDisable() {
         this.wasDisableRequest = true
@@ -56,6 +69,8 @@ abstract class ParkBase : JavaPlugin() {
 
         }
     }
+
+    abstract fun loadCommands()
 
     abstract fun loadDependencies()
 

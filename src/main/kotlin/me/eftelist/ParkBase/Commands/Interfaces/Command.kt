@@ -9,11 +9,11 @@ import java.util.*
 
 interface Command : CommandExecutor {
 
-    var name: String
+    val name: String
     val subCommands: ArrayList<SubCommand>
 
     fun register(){
-        BaseImpl.instance!!.getCommand(name).setExecutor(this)
+        BaseImpl.instance!!.getCommand(name).executor = this
     }
 
     fun doCommand(player: Player, args: List<String>){
@@ -22,12 +22,12 @@ interface Command : CommandExecutor {
         } else {
             val target = getSubCommand(args[0])
             if(target == null){
-                player.sendMessage(""+ ChatColor.RED + "Invalid subcommand! Type /" + this.name + " help");
+                player.sendMessage(""+ ChatColor.RED + "Invalid subcommand! Type /" + this.name + " help")
             } else {
                 val arrayList = ArrayList<String>()
                 arrayList.addAll(args)
                 arrayList.removeAt(0)
-                target.execute(player, arrayList);
+                target.execute(player, arrayList)
             }
         }
     }
